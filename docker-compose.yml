@@ -1,0 +1,53 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .          # Look for the Dockerfile in the current directory
+      dockerfile: Dockerfile # Use the Dockerfile defined above
+    container_name: my_php74_app
+    # restart: always
+    volumes:
+      # Mount your local project directory into the container.
+      # For ThinkPHP, mount the root project folder. Nginx will point to 'public' inside this.
+      - ./:/var/www/html
+    environment:
+      # Environment variables for your PHP application (e.g., database credentials, debug settings)
+      APP_DEBUG: true # Example for ThinkPHP debug mode
+      APP_ENV: development
+      DB_HOST: db
+      DB_DATABASE: mac_cms_movie
+      DB_USERNAME: root
+      DB_PASSWORD: password
+    depends_on:
+      - db
+
+  webserver:
+    image: nginx:latest
+    container_name: my_nginx_webserver
+    # restart: always
+    ports:
+      - "80:80"
+      - "8000:80"
+    volumes:
+      - ./:/var/www/html:ro
+      # Mount your custom Nginx configuration file
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  # Database Service (MySQL)
+  db:
+    image: mysql:9.2   
+    container_name: my_mysql_db
+    # restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password 
+      MYSQL_DATABASE: mac_cms_movie
+    ports:
+      - "3305:3306"   
+    volumes:
+      - db_data:/var/lib/mysql # Persist database data in a Docker volume
+
+volumes:
+  db_data:

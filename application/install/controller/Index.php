@@ -268,7 +268,7 @@ class Index extends Controller
         // 获取站点根目录
         $root_dir = request()->baseFile();
         $root_dir  = preg_replace(['/install.php$/'], [''], $root_dir);
-        return $this->success(lang('install/is_ok'), $root_dir.'admin.php');
+        return $this->success(lang('install/is_ok'), $root_dir.'admin2.php');
     }
     
     /**

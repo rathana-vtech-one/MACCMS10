@@ -82,7 +82,7 @@ return array (
     'makesize' => '30',
     'admin_login_verify' => '1',
     'editor' => 'Ueditor',
-    'lang' => 'zh-cn',
+    'lang' => 'en-us',
     'input_type' => '1',
   ),
   'user' => 
@@ -190,7 +190,7 @@ return array (
   'interface' => 
   array (
     'status' => 0,
-    'pass' => '2RK20D7UKAWWC5RV',
+    'pass' => 'XR8CEAZSLTK5EOBY',
     'vodtype' => '动作片=动作',
     'arttype' => '头条=头条',
     'actortype' => '',
@@ -385,7 +385,7 @@ return array (
       'cachetime' => '',
       'auth' => '',
     ),
-    'website' =>
+    'website' => 
     array (
       'status' => '0',
       'charge' => '0',
@@ -396,17 +396,17 @@ return array (
       'cachetime' => '',
       'auth' => '',
     ),
-  'publicapi' =>
-      array (
-          'status' => '0',
-          'charge' => '0',
-          'pagesize' => '20',
-          'imgurl' => '',
-          'typefilter' => '',
-          'datafilter' => '',
-          'cachetime' => '',
-          'auth' => '',
-      ),
+    'publicapi' => 
+    array (
+      'status' => '0',
+      'charge' => '0',
+      'pagesize' => '20',
+      'imgurl' => '',
+      'typefilter' => '',
+      'datafilter' => '',
+      'cachetime' => '',
+      'auth' => '',
+    ),
   ),
   'connect' => 
   array (
